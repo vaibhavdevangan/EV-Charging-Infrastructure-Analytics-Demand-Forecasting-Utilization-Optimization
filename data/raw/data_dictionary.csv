@@ -1,0 +1,32 @@
+File,Column,Type,Definition,Lineage
+stations.csv,Station_ID,string,Unique station identifier,Source
+stations.csv,Latitude,float,Station latitude,Source
+stations.csv,Longitude,float,Station longitude,Source
+stations.csv,Charging_Capacity_kW,float,Nominal charging capacity per charger,Source/cleaned
+stations.csv,Number_of_Chargers,integer,Estimated number of operational chargers,Derived
+stations.csv,Max_Station_Power_kW,float,Estimated station aggregate power capacity,Derived
+stations.csv,Avg_Users_per_Day,float,Average daily users from source,Source
+charging_sessions.csv,Session_ID,string,Unique charging session identifier,Synthetic
+charging_sessions.csv,Station_ID,string,Station foreign key,Synthetic/linked
+charging_sessions.csv,Start_Time,datetime,Session start timestamp,Synthetic
+charging_sessions.csv,End_Time,datetime,Session end timestamp,Synthetic
+charging_sessions.csv,Charging_Duration_Min,float,Charging duration in minutes,Synthetic
+charging_sessions.csv,Energy_Delivered_kWh,float,Energy delivered during session,Synthetic
+charging_sessions.csv,Average_Power_kW,float,Average delivered power,Derived
+charging_sessions.csv,Wait_Time_Min,float,Estimated waiting time before charging,Synthetic
+charging_sessions.csv,Queue_Length,integer,Estimated queue length at arrival,Synthetic
+charging_sessions.csv,Revenue_USD,float,Session revenue,Derived
+weather.csv,Temperature_C,float,Ambient temperature,Synthetic contextual
+weather.csv,Humidity_pct,float,Relative humidity,Synthetic contextual
+weather.csv,Rainfall_mm,float,Hourly rainfall,Synthetic contextual
+traffic.csv,Traffic_Volume,integer,Estimated traffic volume index/count,Synthetic contextual
+traffic.csv,Average_Speed_kmh,float,Average road speed,Synthetic contextual
+traffic.csv,Congestion_Level,category,Traffic congestion category,Derived
+station_hourly_metrics.csv,Sessions_Count,integer,Sessions beginning in station-hour,Derived from sessions
+station_hourly_metrics.csv,Energy_Delivered_kWh,float,Energy delivered in station-hour,Derived from sessions
+station_hourly_metrics.csv,Utilization_Rate,float,Charging time / charger capacity during hour,Derived
+station_hourly_metrics.csv,Capacity_Utilization,float,Peak station power / rated station power,Derived
+station_hourly_metrics.csv,Congestion_Flag,integer,Operational congestion indicator,Derived
+calendar.csv,Date,date,Calendar date,Derived
+calendar.csv,Weekend_Flag,integer,Weekend indicator,Derived
+calendar.csv,Holiday_Flag,integer,Holiday indicator for selected major holidays,Derived
