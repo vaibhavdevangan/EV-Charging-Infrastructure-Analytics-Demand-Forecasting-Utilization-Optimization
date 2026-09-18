@@ -5,6 +5,7 @@ Phase 8: SQL Analytical Layer
 """
 
 import pandas as pd
+# pyrefly: ignore [missing-import]
 from sqlalchemy import create_engine, text
 import sys
 
